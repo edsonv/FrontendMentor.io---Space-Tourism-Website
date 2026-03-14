@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-blue-900: hsl(230, 35%, 7%);
+	--color-blue-300: hsl(231, 77%, 90%);
+}
+
+@theme inline {
+	--font-bellefair: var(--font-bellefair), serif;
+	--font-barlow: var(--font-barlow), sans-serif;
+	--font-barlow-condensed: var(--font-barlow-condensed), sans-serif;
+}
