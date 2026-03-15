@@ -1,12 +1,229 @@
 @import 'tailwindcss';
 
-@theme {
-	--color-blue-900: hsl(230, 35%, 7%);
-	--color-blue-300: hsl(231, 77%, 90%);
-}
-
 @theme inline {
 	--font-bellefair: var(--font-bellefair), serif;
 	--font-barlow: var(--font-barlow), sans-serif;
 	--font-barlow-condensed: var(--font-barlow-condensed), sans-serif;
+}
+
+@theme {
+	--font-sans: var(--font-barlow), ui-system, sans-serif;
+	--font-sans-condensed: var(--font-barlow-condensed), ui-system, sans-serif;
+	--font-serif: var(--font-bellefair), ui-system, serif;
+
+	--color-blue-900: hsl(230, 35%, 7%);
+	--color-blue-300: hsl(231, 77%, 90%);
+
+	--spacing: 0.5rem;
+
+	--breakpoint-*: initial;
+	--breakpoint-mobile: 375px;
+	--breakpoint-tablet: 768px;
+	--breakpoint-desktop: 1440px;
+}
+
+@layer base {
+	html {
+		font-size: 16px;
+		font-family: var(--font-sans);
+	}
+}
+
+@utility sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	white-space: nowrap;
+	border-width: 0;
+	clip: rect(0, 0, 0, 0);
+}
+
+@utility text-preset-1 {
+	font-family: var(--font-bellefair);
+	font-size: 9rem;
+	/* @apply font-bellefair text-[9rem] leading-[171.9%]; */
+}
+
+@utility text-preset-2 {
+	font-family: var(--font-bellefair);
+	font-size: 6.25rem;
+	/* @apply font-bellefair text-[6.25rem] leading-[114.6%]; */
+}
+
+@utility text-preset-3 {
+	font-family: var(--font-bellefair);
+	font-size: 3.5rem;
+	/* @apply font-bellefair text-[3.5rem] leading-[64.2%]; */
+}
+
+@utility text-preset-4 {
+	font-family: var(--font-bellefair);
+	font-size: 2rem;
+	/* @apply font-bellefair text-[2rem] leading-[36.7%]; */
+}
+
+@utility text-preset-5 {
+	font-family: var(--font-barlow-condensed);
+	font-size: 1.75rem;
+	letter-spacing: 0.25rem;
+	/* @apply font-barlow-condensed text-[1.75rem] leading-[33.6%] tracking-[0.25rem]; */
+}
+
+@utility text-preset-6 {
+	font-family: var(--font-bellefair);
+	font-size: 1.75rem;
+	/* @apply font-bellefair text-[1.75rem] leading-[32.1%]; */
+}
+
+@utility text-preset-7 {
+	font-family: var(--font-barlow-condensed);
+	font-size: 0.875rem;
+	letter-spacing: 0.125rem;
+	/* @apply font-barlow-condensed text-[0.875rem] leading-[16.8%] tracking-[0.125rem]; */
+}
+
+@utility text-preset-8 {
+	font-family: var(--font-barlow-condensed);
+	font-size: 1rem;
+	letter-spacing: 0.125rem;
+	/* @apply font-barlow-condensed text-[1rem] leading-[19.2%] tracking-[0.125rem]; */
+}
+
+@utility text-preset-9 {
+	font-family: var(--font-barlow);
+	font-size: 1.125rem;
+	/* @apply font-barlow text-[1.125rem] leading-[180%]; */
+}
+
+.numbered-title {
+	@apply text-white uppercase text-preset-5;
+	& > span {
+		@apply text-white/50 tracking-[0.295rem] font-bold mr-3.5;
+	}
+}
+
+.display-button {
+	@apply relative text-preset-4 grid p-[2em] place-items-center place-content-center bg-white w-34 h-34  rounded-full no-underline z-1 after:content-[""] after:absolute after:bg-white/10 after:w-full after:h-full after:rounded-full after:-z-1 hover:after:scale-[1.5] focus:after:scale-[1.5] after:transition-[transform_750ms_ease-in-out,opacity_500ms_linear] hover:text-blue-950/50;
+
+	&[data-size='sm'] {
+		@apply w-18 h-18;
+	}
+}
+
+.primary-navigation {
+	> ul {
+		@apply flex;
+	}
+
+	> ul > li > a {
+		@apply text-white uppercase text-preset-8;
+
+		> span {
+			@apply font-bold mr-1.5;
+		}
+	}
+
+	&[data-orientation='horizontal'] {
+		> ul {
+			@apply gap-6;
+		}
+
+		> ul > li > a {
+			@apply py-[38.5px];
+
+			&:hover,
+			&.active {
+				@apply border-b-[3px];
+			}
+
+			&:hover {
+				@apply border-white/50;
+			}
+
+			&.active {
+				@apply border-white;
+			}
+		}
+	}
+
+	&[data-orientation='vertical'] {
+		@apply w-27.75;
+
+		> ul {
+			@apply flex-col gap-4;
+		}
+
+		> ul > li > a {
+			@apply w-full block;
+
+			&:hover,
+			&.active {
+				@apply border-r-[3px];
+			}
+
+			&:hover {
+				@apply border-white/50;
+			}
+
+			&.active {
+				@apply border-white;
+			}
+		}
+	}
+}
+
+.tab-menu {
+	@apply flex gap-4;
+
+	> button {
+		@apply text-preset-8 text-blue-300 uppercase pb-[13px] cursor-pointer;
+
+		&:hover,
+		&[aria-selected='true'] {
+			@apply text-white;
+		}
+
+		&:hover {
+			@apply border-b-[3px] border-white/50;
+		}
+
+		&[aria-selected='true'] {
+			@apply border-b-[3px] border-white;
+		}
+	}
+}
+
+.dot-pagination {
+	@apply flex;
+
+	> button {
+		@apply bg-white/17 rounded-full;
+
+		&:hover {
+			@apply bg-white/50;
+		}
+
+		&[aria-selected='true'] {
+			@apply bg-white;
+		}
+	}
+
+	&[data-size='lg'] {
+		@apply gap-5;
+
+		> button {
+			@apply w-[15px] h-[15px];
+		}
+	}
+
+	&[data-size='sm'] {
+		@apply gap-2;
+
+		> button {
+			@apply w-1.25 h-1.25;
+		}
+	}
 }
