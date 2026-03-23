@@ -1,12 +1,14 @@
 import { DisplayButton } from '@/components/single/DisplayButton/DisplayButton.component';
 import { DotPagination } from '@/components/single/DotPagination/DotPagination.component';
 import { dotPaginationDefaultItems } from '@/components/single/DotPagination/test-data';
+import { NumberedIndicators } from '@/components/single/NumberedIndicators/NumberedIndicators.component';
+import { numberedIndicatorsDefaultItems } from '@/components/single/NumberedIndicators/test-data';
 import { PrimaryNavigation } from '@/components/single/PrimaryNavigation/PrimaryNavigation.component';
 import { defaultItems } from '@/components/single/PrimaryNavigation/test-data';
 import { TabList } from '@/components/single/TabList/TabList.component';
 import { tabListDefaultItems } from '@/components/single/TabList/test-data';
 import { Section } from '../Section';
-import { Separator } from '../Separator';
+import { SubSection } from '../SubSection';
 
 export const InteractiveElementsSection = () => {
 	return (
@@ -15,23 +17,15 @@ export const InteractiveElementsSection = () => {
 			title='Interactive Elements'>
 			<div className='grid gap-9'>
 				{/* Subsection: Display Button */}
-				<div>
-					<h3 className='text-blue-300 text-preset-9'>Display Button</h3>
-
-					<Separator />
-
+				<SubSection title='Display button'>
 					<div className='grid grid-cols-2 items-center justify-items-center'>
 						<DisplayButton />
 						<DisplayButton size='sm' />
 					</div>
-				</div>
+				</SubSection>
 
 				{/* Subsection: Navigation */}
-				<div>
-					<h3 className='text-blue-300 text-preset-9'>Navigation</h3>
-
-					<Separator />
-
+				<SubSection title='Primary navigation'>
 					<div className='grid grid-cols-2 items-center justify-items-center'>
 						<PrimaryNavigation
 							items={defaultItems}
@@ -42,25 +36,17 @@ export const InteractiveElementsSection = () => {
 							orientation='vertical'
 						/>
 					</div>
-				</div>
+				</SubSection>
 
 				{/* Subsection: Tabs */}
-				<div>
-					<h3 className='text-blue-300 text-preset-9'>Tabs</h3>
-
-					<Separator />
-
+				<SubSection title='Tab menu'>
 					<div className='flex justify-center'>
 						<TabList items={tabListDefaultItems} />
 					</div>
-				</div>
+				</SubSection>
 
 				{/* Subsection: Dot pagination */}
-				<div>
-					<h3 className='text-blue-300 text-preset-9'>Dot pagination</h3>
-
-					<Separator />
-
+				<SubSection title='Dot pagination'>
 					<div className='grid grid-cols-2 items-center justify-items-center'>
 						<DotPagination slides={dotPaginationDefaultItems} />
 						<DotPagination
@@ -68,7 +54,18 @@ export const InteractiveElementsSection = () => {
 							size='sm'
 						/>
 					</div>
-				</div>
+				</SubSection>
+
+				{/* Subsection: Numbered indicators */}
+				<SubSection title='Numbered indicators'>
+					<div className='grid grid-cols-2 items-center justify-items-center'>
+						<NumberedIndicators slides={numberedIndicatorsDefaultItems} />
+						<NumberedIndicators
+							slides={numberedIndicatorsDefaultItems}
+							size='sm'
+						/>
+					</div>
+				</SubSection>
 			</div>
 		</Section>
 	);

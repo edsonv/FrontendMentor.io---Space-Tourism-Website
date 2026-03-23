@@ -1,29 +1,32 @@
 'use client';
-
-import { useState } from 'react';
+import cn from 'clsx';
 
 interface Slide {
-	title: string;
+	name: string;
+	images: {
+		png: string;
+		webp: string;
+	};
+	role: string;
+	bio: string;
 }
 
 interface DotPaginationProps {
-	slides: Slide[];
-	size?: 'sm' | 'lg';
+	items: Slide[];
+	selected: Slide;
+	setSelected: (slide: Slide) => void;
+	className?: string;
 }
-export const DotPagination = ({ slides, size = 'lg' }: DotPaginationProps) => {
-	const [selected, setSelected] = useState(slides[0]);
-
+export const DotPagination = ({ items, selected, setSelected, className }: DotPaginationProps) => {
 	return (
-		<div
-			className='dot-pagination'
-			data-size={size}>
-			{slides.map(({ title }, index) => (
+		<div className={cn('dot-pagination', className)}>
+			{items.map(({ name }, index) => (
 				<button
-					key={`${title}-${index}`}
-					onClick={() => setSelected(slides[index])}
-					aria-selected={selected.title === title}
+					key={`${name}-${index}`}
+					onClick={() => setSelected(items[index])}
+					aria-selected={selected.name === name}
 					role='tab'>
-					<span className='sr-only'>{title}</span>
+					<span className='sr-only'>{name}</span>
 				</button>
 			))}
 		</div>

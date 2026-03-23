@@ -33,8 +33,14 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body
-				className={`${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} antialiased bg-blue-900`}>
-				{children}
+				className={`${bellefair.variable} ${barlow.variable} ${barlowCondensed.variable} antialiased relative`}>
+				{/* <div className='design-overlay'>
+					<Image
+						src={DesktopDestinationA}
+						alt=''
+					/>
+				</div> */}
+				<>{children}</>
 			</body>
 		</html>
 	);

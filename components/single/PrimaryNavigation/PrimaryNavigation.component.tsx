@@ -1,33 +1,42 @@
 'use client';
+import { formatIntToStr } from '@/lib/formatIntToStr';
+import { NavItem } from '@/lib/types';
+import IconClose from '@/public/images/shared/icon-close.svg';
+import IconHamburger from '@/public/images/shared/icon-hamburger.svg';
+import cn from 'clsx';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
-interface NavItems {
-	pos: string;
-	label: string;
-	href: string;
-}
+import { useState } from 'react';
 
 interface PrimaryNavigationProps {
-	orientation?: 'horizontal' | 'vertical';
-	items: NavItems[];
+	items: NavItem[];
 }
 
-export const PrimaryNavigation = ({ orientation = 'horizontal', items }: PrimaryNavigationProps) => {
+export const PrimaryNavigation = ({ items }: PrimaryNavigationProps) => {
+	const [isOpen, setIsOpen] = useState(false);
 	const path = usePathname();
 
 	return (
-		<nav
-			className='primary-navigation'
-			data-orientation={orientation}>
-			<ul>
-				{items.map(({ pos, label, href }) => {
+		<nav className={cn('primary-navigation', isOpen ? 'open' : '')}>
+			<button
+				onClick={() => setIsOpen(!isOpen)}
+				className='cursor-pointer align-middle tablet:hidden'>
+				<Image
+					src={isOpen ? IconClose : IconHamburger}
+					alt=''
+				/>
+				<span className='sr-only'>Menu</span>
+			</button>
+			<ul className={cn(!isOpen ? 'hidden tablet:flex' : 'flex-col')}>
+				{items.map(({ label, href }, index) => {
 					return (
-						<li key={pos}>
+						<li key={`${index}-${label}`}>
 							<Link
 								href={href}
-								className={path === href ? 'active' : ''}>
-								<span>{pos}</span>
+								className={path === href ? 'active' : ''}
+								onClick={() => setIsOpen(false)}>
+								<span>{formatIntToStr(index)}</span>
 								{label}
 							</Link>
 						</li>

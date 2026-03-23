@@ -3,7 +3,7 @@ import { DotPagination } from './DotPagination.component';
 import { dotPaginationDefaultItems } from './test-data';
 
 const meta = {
-	title: 'DotPagination',
+	title: 'Dot Pagination',
 	component: DotPagination,
 	parameters: {
 		layout: 'centered',

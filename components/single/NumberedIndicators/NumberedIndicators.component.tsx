@@ -1,35 +1,33 @@
 'use client';
-
 import cn from 'clsx';
 
 interface Item {
 	name: string;
 	images: {
-		png: string;
-		webp: string;
+		portrait: string;
+		landscape: string;
 	};
 	description: string;
-	distance: string;
-	travel: string;
 }
 
-interface TabListProps {
+interface NumberedIndicatorsProps {
 	items: Item[];
-	setSelected: (item: Item) => void;
 	selected: Item;
+	setSelected: (item: Item) => void;
 	className?: string;
 }
 
-export const TabList = ({ items, setSelected, selected, className }: TabListProps) => {
+export const NumberedIndicators = ({ items, selected, setSelected, className }: NumberedIndicatorsProps) => {
 	return (
-		<div className={cn('tab-menu', className)}>
+		<div className={cn('numbered-indicators', className)}>
 			{items.map(({ name }, index) => (
 				<button
-					key={`${name}-${index}`}
+					key={index}
+					className='numbered-indicator'
 					role='tab'
 					aria-selected={selected.name === name}
 					onClick={() => setSelected(items[index])}>
-					{name}
+					{index + 1}
 				</button>
 			))}
 		</div>
