@@ -31,6 +31,6 @@
 		"**/*.mts",
 		".storybook/**/*.ts",
 		".storybook/**/*.tsx"
-	],
+, "components/single/DisplayButton/DisplayButton.stories.ts.bak"	],
 	"exclude": ["node_modules"]
 }
