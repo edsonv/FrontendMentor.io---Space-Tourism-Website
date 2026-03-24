@@ -13,8 +13,8 @@ export const InteractiveElementsSection = () => {
 				{/* Subsection: Display Button */}
 				<SubSection title='Display button'>
 					<div className='grid grid-cols-2 items-center justify-items-center'>
-						<DisplayButton />
-						<DisplayButton size='sm' />
+						<DisplayButton href='#' />
+						<DisplayButton href='#' />
 					</div>
 				</SubSection>
 
