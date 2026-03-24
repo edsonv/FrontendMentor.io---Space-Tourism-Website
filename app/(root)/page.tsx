@@ -14,7 +14,10 @@ const HomePage = () => {
 					out of this world experience!
 				</p>
 			</header>
-			<DisplayButton className='action' />
+			<DisplayButton
+				href='/destination'
+				className='action'
+			/>
 		</section>
 	);
 };
