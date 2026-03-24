@@ -18,21 +18,23 @@ const CrewPage = () => {
 				</h1>
 			</header>
 
-			<DotPagination
-				items={items}
-				selected={crewMember}
-				setSelected={setCrewMember}
-				className='indicators justify-self-center desktop:justify-self-start tablet:my-3'
-			/>
+			<div className='article grid grid-rows-[1fr_auto] h-full content-between gap-10'>
+				<DotPagination
+					items={items}
+					selected={crewMember}
+					setSelected={setCrewMember}
+					className='order-2 indicators justify-self-center desktop:justify-self-start tablet:my-3'
+				/>
 
-			<div className='article flex flex-col desktop:justify-center gap-3 mt-5 tablet:max-w-[58ch] desktop:max-w-full'>
-				<h2 className='text-white/50 text-preset-4 uppercase text-center desktop:text-left'>
-					{crewMember.role} <span className='block text-white text-preset-3'>{crewMember.name}</span>
-				</h2>
-				<p className='text-preset-9 text-center desktop:text-left text-blue-300'>{crewMember.bio}</p>
+				<article className='order-1 flex flex-col desktop:justify-center gap-3 mt-5 tablet:max-w-[58ch] desktop:max-w-full'>
+					<h2 className='text-white/50 text-preset-4 uppercase text-center desktop:text-left'>
+						{crewMember.role} <span className='block text-white text-preset-3'>{crewMember.name}</span>
+					</h2>
+					<p className='text-preset-9 text-center desktop:text-left text-blue-300'>{crewMember.bio}</p>
+				</article>
 			</div>
 
-			<div className='image relative w-full h-full mask-[linear-gradient(to_bottom,black_85%,transparent_100%)]'>
+			<div className='image relative w-[271px] tablet:w-55.75 h-42.5 tablet:h-70 desktop:w-full desktop:h-full mask-[linear-gradient(to_bottom,black_85%,transparent_100%)]'>
 				<Image
 					src={crewMember.images.webp}
 					alt={crewMember.name}

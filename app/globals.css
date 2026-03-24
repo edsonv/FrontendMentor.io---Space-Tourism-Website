@@ -140,7 +140,7 @@
 	}
 
 	&.open {
-		@apply fixed top-0 right-0 bottom-0 pl-4 pt-4 gap-4 flex flex-col  items-end w-[68vw] z-50 bg-white/15 backdrop-blur-sm border  border-white/15 shadow-[0_10px_40px_rgba(0,0,0,.15)] pr-0.5;
+		@apply fixed top-0 right-0 bottom-0 pl-4 pt-4 gap-4 flex flex-col  items-end w-[68vw] z-50 bg-[linear-gradient(to_right,rgba(255,255,255,.02),rgba(255,255,255,0.15))] backdrop-blur-sm shadow-[0_10px_40px_rgba(0,0,0,.15)] pr-0.5;
 		> ul {
 			@apply flex flex-col w-full gap-4;
 		}
@@ -168,7 +168,7 @@
 	}
 
 	@media screen and (min-width: 768px) {
-		@apply pl-[117px] pr-5 py-4.5 flex bg-white/15 backdrop-blur-sm border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,.15)];
+		@apply pl-[117px] pr-5 py-4.5 flex bg-[linear-gradient(to_right,rgba(255,255,255,.02),rgba(255,255,255,0.15))] backdrop-blur-sm shadow-[0_10px_40px_rgba(0,0,0,.15)];
 
 		> ul {
 			@apply gap-6;
@@ -275,7 +275,7 @@
 }
 
 .home-wrapper {
-	@apply bg-[url('/images/home/background-home-mobile.jpg')] tablet:bg-[url('/images/home/background-home-tablet.jpg')] desktop:bg-[url('/images/home/background-home-desktop.jpg')] bg-no-repeat bg-position-[center_bottom] tablet:bg-center desktop:bg-cover flex min-h-screen flex-col;
+	@apply bg-[url('/images/home/background-home-mobile.jpg')] tablet:bg-[url('/images/home/background-home-tablet.jpg')] desktop:bg-[url('/images/home/background-home-desktop.jpg')] bg-no-repeat bg-position-[center_bottom] tablet:bg-center desktop:bg-cover;
 
 	section {
 		grid-template-areas:
@@ -299,7 +299,7 @@
 }
 
 .destination-wrapper {
-	@apply bg-[url('/images/destination/background-destination-mobile.jpg')] tablet:bg-[url('/images/destination/background-destination-tablet.jpg')] desktop:bg-[url('/images/destination/background-destination-desktop.jpg')] bg-no-repeat bg-position-[center_top] bg-cover flex min-h-screen flex-col;
+	@apply bg-[url('/images/destination/background-destination-mobile.jpg')] tablet:bg-[url('/images/destination/background-destination-tablet.jpg')] desktop:bg-[url('/images/destination/background-destination-desktop.jpg')] bg-no-repeat bg-position-[center_top] bg-cover;
 
 	section {
 		grid-template-areas:
@@ -331,10 +331,6 @@
 			grid-area: article;
 		}
 
-		> .indicators {
-			grid-area: indicators;
-		}
-
 		> .image {
 			grid-area: image;
 		}
@@ -342,30 +338,27 @@
 }
 
 .crew-wrapper {
-	@apply bg-[url('/images/crew/background-crew-mobile.jpg')] tablet:bg-[url('/images/crew/background-crew-tablet.jpg')] desktop:bg-[url('/images/crew/background-crew-desktop.jpg')] bg-no-repeat bg-center bg-cover flex min-h-screen flex-col;
+	@apply bg-[url('/images/crew/background-crew-mobile.jpg')] tablet:bg-[url('/images/crew/background-crew-tablet.jpg')] desktop:bg-[url('/images/crew/background-crew-desktop.jpg')] bg-no-repeat bg-center bg-cover;
 
 	section {
 		grid-template-areas:
 			'title title title title'
 			'article article article article'
-			'indicators indicators indicators indicators'
 			'image image image image';
-		grid-template-rows: repeat(3, auto) 1fr;
+		grid-template-rows: auto auto auto;
 
 		@media screen and (min-width: 768px) {
 			grid-template-areas:
-				'title title title . . . . .'
+				'title title title title . . . .'
 				'. article article article article article article .'
-				'. . . indicators indicators . . .'
 				'. image image image image image image .';
 		}
 
 		@media screen and (min-width: 1440px) {
 			grid-template-areas:
-				'title title title title . . . . . . . .'
-				'article article article article article article image image image image image image'
-				'indicators indicators . . . . image image image image image image';
-			grid-template-rows: auto 1fr auto;
+				'title title title title title . . . . . . .'
+				'article article article article article article image image image image image image';
+			grid-template-rows: auto 1fr;
 		}
 
 		> .title {
@@ -376,10 +369,6 @@
 			grid-area: article;
 		}
 
-		> .indicators {
-			grid-area: indicators;
-		}
-
 		> .image {
 			grid-area: image;
 		}
@@ -387,7 +376,7 @@
 }
 
 .technology-wrapper {
-	@apply bg-[url('/images/technology/background-technology-mobile.jpg')] tablet:bg-[url('/images/technology/background-technology-tablet.jpg')] desktop:bg-[url('/images/technology/background-technology-desktop.jpg')] bg-no-repeat bg-center bg-cover flex min-h-screen flex-col;
+	@apply bg-[url('/images/technology/background-technology-mobile.jpg')] tablet:bg-[url('/images/technology/background-technology-tablet.jpg')] desktop:bg-[url('/images/technology/background-technology-desktop.jpg')] bg-no-repeat bg-center bg-cover;
 
 	section {
 		grid-template-areas:

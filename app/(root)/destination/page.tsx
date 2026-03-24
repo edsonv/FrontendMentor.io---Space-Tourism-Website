@@ -35,7 +35,7 @@ const DestinationPage = () => {
 					className='indicators self-center desktop:self-start'
 				/>
 
-				<div className='flex flex-col items-center desktop:items-start'>
+				<article className='flex flex-col items-center desktop:items-start'>
 					<h2 className='text-white text-preset-2 uppercase'>{destination.name}</h2>
 					<p className='text-preset-9 text-center desktop:text-left text-blue-300'>
 						{destination.description}
@@ -51,7 +51,7 @@ const DestinationPage = () => {
 							<span className='text-white text-preset-6'>{destination.travel}</span>
 						</div>
 					</div>
-				</div>
+				</article>
 			</div>
 		</section>
 	);

@@ -11,14 +11,15 @@ import { useState } from 'react';
 
 interface PrimaryNavigationProps {
 	items: NavItem[];
+	className?: string;
 }
 
-export const PrimaryNavigation = ({ items }: PrimaryNavigationProps) => {
+export const PrimaryNavigation = ({ items, className }: PrimaryNavigationProps) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const path = usePathname();
 
 	return (
-		<nav className={cn('primary-navigation', isOpen ? 'open' : '')}>
+		<nav className={cn('primary-navigation', className, isOpen ? 'open' : '')}>
 			<button
 				onClick={() => setIsOpen(!isOpen)}
 				className='cursor-pointer align-middle tablet:hidden'>
