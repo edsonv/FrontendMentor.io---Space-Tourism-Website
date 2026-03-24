@@ -22,14 +22,19 @@ export const PrimaryNavigation = ({ items, className }: PrimaryNavigationProps) 
 		<nav className={cn('primary-navigation', className, isOpen ? 'open' : '')}>
 			<button
 				onClick={() => setIsOpen(!isOpen)}
-				className='cursor-pointer align-middle tablet:hidden'>
+				className='cursor-pointer align-middle tablet:hidden'
+				aria-controls='primary-menu'
+				aria-expanded={isOpen}>
 				<Image
 					src={isOpen ? IconClose : IconHamburger}
 					alt=''
 				/>
 				<span className='sr-only'>Menu</span>
 			</button>
-			<ul className={cn(!isOpen ? 'hidden tablet:flex' : 'flex-col')}>
+			<ul
+				id='primary-menu'
+				className={cn(!isOpen ? 'hidden tablet:flex' : 'flex-col')}
+				aria-hidden={!isOpen}>
 				{items.map(({ label, href }, index) => {
 					return (
 						<li key={`${index}-${label}`}>

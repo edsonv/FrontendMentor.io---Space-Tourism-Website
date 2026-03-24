@@ -30,7 +30,9 @@ export default function RootLayout({
 							className='logo'
 						/>
 					</div>
-					<div className='bg-white/25 h-px w-full hidden desktop:block z-10 col-start-2 ml-7.5'></div>
+					<div
+						className='bg-white/25 h-px w-full hidden desktop:block z-10 col-start-2 ml-7.5'
+						aria-hidden='true'></div>
 					<PrimaryNavigation
 						items={MAIN_NAV_ITEMS}
 						className='col-start-3 justify-self-end'
